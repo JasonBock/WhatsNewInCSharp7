@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace WhatsNewInCSharp7
 {
@@ -12,9 +13,9 @@ namespace WhatsNewInCSharp7
 		{
 			//Program.PrintConstants();
 			//Program.UseLocalFunction();
-			//Program.MakingParsingEasy("fjdklaf");
+			Program.MakingParsingEasy("fjdklaf");
 			//Program.MakingParsingEasy("3");
-			Program.HandlingRefs();
+			//Program.HandlingRefs();
 			//Program.UseCalculator();
 			//Program.UseHandler();
 		}
@@ -28,13 +29,26 @@ namespace WhatsNewInCSharp7
 
 		private static void UseLocalFunction()
 		{
-			double Calculate(double x)
+			uint Collatz(uint value) =>
+				value % 2 == 1 ? (3 * value + 1) / 2 : value / 2;
+
+			uint[] CollatzSequence(uint start)
 			{
-				return (3 * x + 4) / 2;
+				var sequence = new List<uint> { start };
+
+				var next = start;
+
+				while(next > 1)
+				{
+					next = Collatz(next);
+					sequence.Add(next);
+				}
+
+				return sequence.ToArray();
 			}
 
-			Console.Out.WriteLine(Calculate(2.22));
-			Console.Out.WriteLine(Calculate(4.44));
+			Console.Out.WriteLine(string.Join(", ", CollatzSequence(5)));
+			Console.Out.WriteLine(string.Join(", ", CollatzSequence(11)));
 		}
 
 		private static void MakingParsingEasy(string value)
@@ -58,9 +72,9 @@ namespace WhatsNewInCSharp7
 			}
 
 			// Thrid way
-			if (int.TryParse(value, out var thridWay))
+			if (int.TryParse(value, out var thirdWay))
 			{
-				Console.Out.WriteLine($"Third way: {thridWay}");
+				Console.Out.WriteLine($"Third way: {thirdWay}");
 			}
 		}
 
@@ -82,7 +96,7 @@ namespace WhatsNewInCSharp7
 			var result = Calculator.CalculateWithDeconstructedType(
 				Program.FirstValue, Program.ThirdValue);
 			Console.Out.WriteLine($"{nameof(Calculator.CalculateWithDeconstructedType)} value: {result.Result}");
-			(var x, var _) = result;
+			(var x, var y) = result;
 			Console.Out.WriteLine($"{nameof(Calculator.CalculateWithDeconstructedType)} value from x: {result.Result}");
 
 			var tupleResult = Calculator.Calculate(
@@ -92,7 +106,7 @@ namespace WhatsNewInCSharp7
 			var namedTupleResult = Calculator.CalculateWithNamedValues(
 				Program.FirstValue, Program.ThirdValue);
 			Console.Out.WriteLine($"{nameof(Calculator.CalculateWithNamedValues)} value: {namedTupleResult.value}");
-			(var namedValue, var __) = Calculator.CalculateWithNamedValues(
+			(var namedValue, var _) = Calculator.CalculateWithNamedValues(
 				Program.FirstValue, Program.ThirdValue);
 			Console.Out.WriteLine($"{nameof(Calculator.CalculateWithNamedValues)} value from name: {namedValue}");
 		}

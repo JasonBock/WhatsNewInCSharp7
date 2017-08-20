@@ -4,11 +4,10 @@
 	{
 		private int[] values;
 
-		public HugeData(int size)
-		{
+		public HugeData(int size) => 
 			this.values = new int[size];
-		}
 
-		public int GetSize() => this.values.Length;
+		public int GetSize() => 
+			this.values.Length;
 	}
 }

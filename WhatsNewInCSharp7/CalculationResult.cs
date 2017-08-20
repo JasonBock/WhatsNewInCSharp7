@@ -12,7 +12,8 @@ namespace WhatsNewInCSharp7
 
 		public void Deconstruct(out int result, out Guid id)
 		{
-			result = this.Result; id = this.Id;
+			result = this.Result;
+			id = this.Id;
 		}
 
 		public Guid Id { get; }

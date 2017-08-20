@@ -6,19 +6,13 @@ namespace WhatsNewInCSharp7
 		: IHandle, IHandleWithValues<(string x, string y)>,
 		IHandleWithValues<(string, int, Guid)>
 	{
-		public void Handle()
-		{
+		public void Handle() => 
 			Console.Out.WriteLine($"{nameof(this.Handle)}");
-		}
 
-		public void Handle((string, int, Guid) values)
-		{
+		public void Handle((string, int, Guid) values) => 
 			Console.Out.WriteLine($"{nameof(this.Handle)} : {values.Item2}");
-		}
 
-		public void Handle((string x, string y) values)
-		{
+		public void Handle((string x, string y) values) => 
 			Console.Out.WriteLine($"{nameof(this.Handle)} : {values.y}");
-		}
 	}
 }
