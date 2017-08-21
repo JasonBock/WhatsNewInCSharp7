@@ -14,7 +14,7 @@ namespace WhatsNewInCSharp7
 		public ExpressedPerson(int id) => this.id = id;
 
 		public ExpressedPerson(int id, string name)
-			: this(id) => this.name = name;
+			: this(id) => this.name = name ?? throw new ArgumentNullException(nameof(name));
 
 		private void SetProperty<T>(string propertyName, T newValue, ref T currentValue)
 			where T : IEquatable<T>

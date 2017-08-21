@@ -1,4 +1,4 @@
-﻿namespace WhatsNewInCSharp7
+﻿namespace WhatsNewInCSharp71
 {
 	public class SomeThing : Thing { }
 }

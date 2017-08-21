@@ -232,3 +232,6 @@ $RECYCLE.BIN/
 
 # vs folder
 .vs/
+
+# Benchmark.NET folder
+BenchmarkDotNet.Artifacts/

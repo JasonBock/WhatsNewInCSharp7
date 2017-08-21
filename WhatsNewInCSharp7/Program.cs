@@ -23,7 +23,7 @@ namespace WhatsNewInCSharp7
 			//Program.ShowTuples();
 			//Program.ShowTuplesWithGenerics();
 			//Program.ShowValueTask();
-			Program.ShowExpressionBodiedMembers();
+			Program.ShowExpressionBodiedMembersAndThrowExpressions();
 		}
 #pragma warning restore IDE0022
 
@@ -192,7 +192,7 @@ namespace WhatsNewInCSharp7
 			Console.Out.WriteLine(ReturnValueAsync().GetAwaiter().GetResult());
 		}
 
-		private static void ShowExpressionBodiedMembers()
+		private static void ShowExpressionBodiedMembersAndThrowExpressions()
 		{
 			void PersonPropertyChanged(object sender, PropertyChangedEventArgs e)
 			{
@@ -205,6 +205,16 @@ namespace WhatsNewInCSharp7
 			person.Name = "Jeff";
 
 			Console.Out.WriteLine($"{person.Id}, {person.Name}");
+			Console.Out.WriteLine();
+
+			try
+			{
+				new ExpressedPerson(22, null);
+			}
+			catch(ArgumentNullException e)
+			{
+				Console.Out.WriteLine($"{nameof(ArgumentNullException)} - {e.ParamName}");
+			}
 		}
 	}
 }
