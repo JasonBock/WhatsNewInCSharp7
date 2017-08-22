@@ -22,8 +22,8 @@ namespace WhatsNewInCSharp7
 			//Program.ShowPatternMatching();
 			//Program.ShowTuples();
 			//Program.ShowTuplesWithGenerics();
-			//Program.ShowValueTask();
-			Program.ShowExpressionBodiedMembersAndThrowExpressions();
+			Program.ShowValueTask();
+			//Program.ShowExpressionBodiedMembersAndThrowExpressions();
 		}
 #pragma warning restore IDE0022
 
@@ -186,8 +186,7 @@ namespace WhatsNewInCSharp7
 
 		private static void ShowValueTask()
 		{
-			ValueTask<int> ReturnValueAsync() =>
-				new ValueTask<int>(22);
+			ValueTask<int> ReturnValueAsync() => new ValueTask<int>(22);
 
 			Console.Out.WriteLine(ReturnValueAsync().GetAwaiter().GetResult());
 		}
