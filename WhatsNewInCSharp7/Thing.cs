@@ -1,7 +1,9 @@
 ﻿namespace WhatsNewInCSharp7
 {
-	public class Thing
+	public abstract class Thing
 	{
+		protected Thing() : base() { }
+
 		public int Value { get; set; }
 	}
 }

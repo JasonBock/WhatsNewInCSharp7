@@ -15,14 +15,14 @@ namespace WhatsNewInCSharp7
 #pragma warning disable IDE0022 // Use expression body for methods
 		static void Main(string[] args)
 		{
-			//Program.ShowBinaryDigitsAndDigitSeparators();
+			Program.ShowBinaryDigitsAndDigitSeparators();
 			//Program.ShowLocalFunctions();
 			//Program.ShowOutVar();
 			//Program.ShowRefReturnsAndLocals();
 			//Program.ShowPatternMatching();
 			//Program.ShowTuples();
 			//Program.ShowTuplesWithGenerics();
-			Program.ShowValueTask();
+			//Program.ShowValueTask();
 			//Program.ShowExpressionBodiedMembersAndThrowExpressions();
 		}
 #pragma warning restore IDE0022
@@ -86,7 +86,7 @@ namespace WhatsNewInCSharp7
 				Console.Out.WriteLine($"Second way: {secondWay}");
 			}
 
-			// Thrid way
+			// Third way
 			if (int.TryParse(value, out var thirdWay))
 			{
 				Console.Out.WriteLine($"Third way: {thirdWay}");
@@ -95,6 +95,14 @@ namespace WhatsNewInCSharp7
 
 		private static void ShowRefReturnsAndLocals()
 		{
+			var slowClassList = new SlowList<GiantClass>(100);
+			slowClassList[50] = new GiantClass();
+			var slowClass1 = slowClassList[50];
+			var slowClass2 = slowClassList[50];
+			slowClass1.Value1 = 22;
+			Console.Out.WriteLine(
+				$"{nameof(slowClass2)}.{nameof(slowClass2.Value1)} is {slowClass2.Value1}");
+
 			var slowList = new SlowList<GiantStruct>(100);
 			var slowStruct1 = slowList[50];
 			var slowStruct2 = slowList[50];
@@ -115,7 +123,7 @@ namespace WhatsNewInCSharp7
 				$"{nameof(fastStruct2)}.{nameof(fastStruct2.Value1)} is {fastStruct2.Value1}");
 
 			// For benchmarks...
-			BenchmarkRunner.Run<ListIndexPerformance>();
+			//BenchmarkRunner.Run<ListIndexPerformance>();
 			/*
 							  Method |        Mean |      Error |     StdDev |  Scaled |  ScaledSD | Allocated |
 			-------------------- | -----------:| ----------:| ----------:| -------:| ---------:| ---------:|
@@ -173,7 +181,7 @@ namespace WhatsNewInCSharp7
 				Program.FirstValue, Program.ThirdValue);
 			Console.Out.WriteLine($"{nameof(Calculator.CalculateWithDeconstructedType)} value: {result.Result}");
 			(var x, var y) = result;
-			Console.Out.WriteLine($"{nameof(Calculator.CalculateWithDeconstructedType)} value from x: {result.Result}");
+			Console.Out.WriteLine($"{nameof(Calculator.CalculateWithDeconstructedType)} value from x: {x}");
 		}
 
 		private static void ShowTuplesWithGenerics()

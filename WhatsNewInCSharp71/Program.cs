@@ -13,7 +13,7 @@ namespace WhatsNewInCSharp71
 			//AsyncContext.Run(() => Program.DoValueTaskAsync());
 			//Program.ShowDefaultLiterals();
 			//Program.ShowInferredTupleNames();
-			Program.ShowPatternMatchingWithGenerics();
+			//Program.ShowPatternMatchingWithGenerics();
 		}
 #pragma warning restore IDE0022 // Use expression body for methods
 
