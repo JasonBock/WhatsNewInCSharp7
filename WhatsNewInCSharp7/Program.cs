@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace WhatsNewInCSharp7
 {
-	partial class Program
+	public static class Program
 	{
 		const int FirstValue = 00_11_00_11;
 		const int SecondValue = 0b00_11_00_11;
 		const int ThirdValue = 0x3_3;
 
 #pragma warning disable IDE0022 // Use expression body for methods
-		static void Main(string[] args)
+		public static void Main(string[] args)
 		{
-			Program.ShowBinaryDigitsAndDigitSeparators();
+			//Program.ShowBinaryDigitsAndDigitSeparators();
 			//Program.ShowLocalFunctions();
 			//Program.ShowOutVar();
 			//Program.ShowRefReturnsAndLocals();
 			//Program.ShowPatternMatching();
 			//Program.ShowTuples();
 			//Program.ShowTuplesWithGenerics();
-			//Program.ShowValueTask();
+			Program.ShowValueTask();
 			//Program.ShowExpressionBodiedMembersAndThrowExpressions();
 		}
 #pragma warning restore IDE0022
@@ -36,11 +36,11 @@ namespace WhatsNewInCSharp7
 
 		private static void ShowLocalFunctions()
 		{
-			uint Collatz(uint value) =>
-				value % 2 == 1 ? (3 * value + 1) / 2 : value / 2;
-
 			uint[] CollatzSequence(uint start)
 			{
+				uint Collatz(uint value) =>
+					value % 2 == 1 ? (3 * value + 1) / 2 : value / 2;
+
 				var sequence = new List<uint> { start };
 
 				var next = start;
@@ -121,15 +121,6 @@ namespace WhatsNewInCSharp7
 			fastStruct1.Value1 = 22;
 			Console.Out.WriteLine(
 				$"{nameof(fastStruct2)}.{nameof(fastStruct2.Value1)} is {fastStruct2.Value1}");
-
-			// For benchmarks...
-			//BenchmarkRunner.Run<ListIndexPerformance>();
-			/*
-							  Method |        Mean |      Error |     StdDev |  Scaled |  ScaledSD | Allocated |
-			-------------------- | -----------:| ----------:| ----------:| -------:| ---------:| ---------:|
-			 GetNameFromFastList |   0.4910 ns |  0.0549 ns |  0.0855 ns |    1.00 |      0.00 |       0 B |
-			 GetNameFromSlowList |  18.8409 ns |  0.4125 ns |  0.8045 ns |   39.47 |      6.76 |       0 B |
-			*/
 		}
 
 		private static void ShowPatternMatching()

@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace WhatsNewInCSharp71
 {
-	class Program
+	public static class Program
 	{
 #pragma warning disable IDE0022 // Use expression body for methods
-		static void Main(string[] args)
+		public static void Main(string[] args)
 		{
 			//AsyncContext.Run(() => Program.DoValueTaskAsync());
 			//Program.ShowDefaultLiterals();
@@ -17,7 +17,7 @@ namespace WhatsNewInCSharp71
 		}
 #pragma warning restore IDE0022 // Use expression body for methods
 
-		//static async Task Main(string[] args) => 
+		//public static async Task Main(string[] args) => 
 		//	await Program.DoValueTaskAsync();
 
 		private static async Task DoValueTaskAsync()

@@ -1,0 +1,29 @@
+﻿For benchmarks...
+
+BenchmarkRunner.Run<ListIndexPerformance>();
+                 Method |        Mean |      Error |     StdDev |  Scaled |  ScaledSD | Allocated |
+----------------------- | -----------:| ----------:| ----------:| -------:| ---------:| ---------:|
+	GetNameFromFastList |   0.4910 ns |  0.0549 ns |  0.0855 ns |    1.00 |      0.00 |       0 B |
+	GetNameFromSlowList |  18.8409 ns |  0.4125 ns |  0.8045 ns |   39.47 |      6.76 |       0 B |
+
+BenchmarkRunner.Run<LocalFunctionPerformance>();
+                  Method |  Value |      Mean |      Error |     StdDev | Scaled | ScaledSD |
+------------------------ |------- |----------:|-----------:|-----------:|-------:|---------:|
+   RunWithLocalFunctions |      5 | 118.31 ns |  2.2922 ns |  2.8150 ns |   1.41 |     0.03 |
+      RunWithInlinedCode |      5 |  83.64 ns |  0.8935 ns |  0.6460 ns |   1.00 |     0.00 |
+ RunWithPrivateFunctions |      5 | 115.51 ns |  3.1512 ns |  3.6289 ns |   1.38 |     0.04 |
+   RunWithLocalFunctions |     50 | 263.30 ns |  5.2121 ns |  9.7896 ns |   1.20 |     0.05 |
+      RunWithInlinedCode |     50 | 219.33 ns |  3.6449 ns |  3.2311 ns |   1.00 |     0.00 |
+ RunWithPrivateFunctions |     50 | 260.43 ns |  5.1095 ns |  4.7794 ns |   1.19 |     0.03 |
+   RunWithLocalFunctions |    500 | 620.66 ns | 12.2874 ns | 12.6182 ns |   1.14 |     0.03 |
+      RunWithInlinedCode |    500 | 545.93 ns | 10.5774 ns | 10.3884 ns |   1.00 |     0.00 |
+ RunWithPrivateFunctions |    500 | 625.50 ns | 11.2392 ns |  9.9633 ns |   1.15 |     0.03 |
+   RunWithLocalFunctions |   5000 | 282.34 ns |  5.6398 ns |  9.1072 ns |   1.22 |     0.04 |
+      RunWithInlinedCode |   5000 | 231.78 ns |  3.1099 ns |  2.9090 ns |   1.00 |     0.00 |
+ RunWithPrivateFunctions |   5000 | 279.31 ns |  5.6453 ns |  6.0404 ns |   1.21 |     0.03 |
+   RunWithLocalFunctions |  50000 | 682.94 ns |  4.9504 ns |  3.8650 ns |   1.12 |     0.03 |
+      RunWithInlinedCode |  50000 | 608.59 ns | 13.5340 ns | 13.8984 ns |   1.00 |     0.00 |
+ RunWithPrivateFunctions |  50000 | 692.28 ns | 13.1543 ns | 11.6610 ns |   1.14 |     0.03 |
+   RunWithLocalFunctions | 500000 | 743.83 ns | 10.9582 ns |  9.7141 ns |   1.14 |     0.03 |
+      RunWithInlinedCode | 500000 | 653.38 ns | 12.4280 ns | 12.7627 ns |   1.00 |     0.00 |
+ RunWithPrivateFunctions | 500000 | 751.02 ns | 14.7492 ns | 13.7964 ns |   1.15 |     0.03 |
