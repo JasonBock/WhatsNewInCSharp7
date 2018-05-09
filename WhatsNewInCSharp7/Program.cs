@@ -12,20 +12,17 @@ namespace WhatsNewInCSharp7
 		const int SecondValue = 0b00_11_00_11;
 		const int ThirdValue = 0x3_3;
 
-#pragma warning disable IDE0022 // Use expression body for methods
-		public static void Main(string[] args)
-		{
-			//Program.ShowBinaryDigitsAndDigitSeparators();
-			//Program.ShowLocalFunctions();
-			//Program.ShowOutVar();
-			//Program.ShowRefReturnsAndLocals();
-			//Program.ShowPatternMatching();
-			//Program.ShowTuples();
-			//Program.ShowTuplesWithGenerics();
-			Program.ShowValueTask();
-			//Program.ShowExpressionBodiedMembersAndThrowExpressions();
-		}
-#pragma warning restore IDE0022
+		//Program.ShowBinaryDigitsAndDigitSeparators();
+		//Program.ShowLocalFunctions();
+		//Program.ShowOutVar();
+		//Program.ShowRefReturnsAndLocals();
+		//Program.ShowPatternMatching();
+		//Program.ShowTuples();
+		//Program.ShowTuplesWithGenerics();
+		//Program.ShowValueTask();
+		//Program.ShowExpressionBodiedMembersAndThrowExpressions();
+		public static void Main(string[] args) => 
+			Program.ShowExpressionBodiedMembersAndThrowExpressions();
 
 		private static void ShowBinaryDigitsAndDigitSeparators()
 		{
