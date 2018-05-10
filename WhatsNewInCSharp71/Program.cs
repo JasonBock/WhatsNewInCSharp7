@@ -15,6 +15,9 @@ namespace WhatsNewInCSharp71
 
 		private static async Task DoValueTaskAsync()
 		{
+			Console.Out.WriteLine($"{nameof(Program.DoValueTaskAsync)}");
+			Console.Out.WriteLine();
+
 			ValueTask<int> ReturnValueAsync() =>
 				new ValueTask<int>(22);
 
@@ -24,6 +27,9 @@ namespace WhatsNewInCSharp71
 
 		private static void ShowDefaultLiterals()
 		{
+			Console.Out.WriteLine($"{nameof(Program.ShowDefaultLiterals)}");
+			Console.Out.WriteLine();
+
 			int DoSomething(int x, string y) =>
 				x == default && y == default ? default : 22;
 
@@ -35,6 +41,9 @@ namespace WhatsNewInCSharp71
 
 		private static void ShowInferredTupleNames()
 		{
+			Console.Out.WriteLine($"{nameof(Program.ShowInferredTupleNames)}");
+			Console.Out.WriteLine();
+
 			var x = (id: 3, name: "name");
 			var y = (x.id, x.name);
 			Console.Out.WriteLine($"{y.id}, {y.name}");
@@ -42,6 +51,9 @@ namespace WhatsNewInCSharp71
 
 		private static void ShowPatternMatchingWithGenerics()
 		{
+			Console.Out.WriteLine($"{nameof(Program.ShowPatternMatchingWithGenerics)}");
+			Console.Out.WriteLine();
+
 			void HandleThing<T>(T thing) where T : Thing
 			{
 				if (thing is SomeThing someThing)

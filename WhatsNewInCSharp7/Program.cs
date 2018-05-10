@@ -27,6 +27,9 @@ namespace WhatsNewInCSharp7
 
 		private static void ShowBinaryDigitsAndDigitSeparators()
 		{
+			Console.Out.WriteLine($"{nameof(Program.ShowBinaryDigitsAndDigitSeparators)}");
+			Console.Out.WriteLine();
+
 			Console.Out.WriteLine(Program.FirstValue);
 			Console.Out.WriteLine(Program.SecondValue);
 			Console.Out.WriteLine(Program.ThirdValue);
@@ -34,6 +37,9 @@ namespace WhatsNewInCSharp7
 
 		private static void ShowLocalFunctions()
 		{
+			Console.Out.WriteLine($"{nameof(Program.ShowLocalFunctions)}");
+			Console.Out.WriteLine();
+
 			uint[] CollatzSequence(uint start)
 			{
 				uint Collatz(uint value) =>
@@ -58,6 +64,9 @@ namespace WhatsNewInCSharp7
 
 		private static void ShowOutVar()
 		{
+			Console.Out.WriteLine($"{nameof(Program.ShowOutVar)}");
+			Console.Out.WriteLine();
+
 			Program.MakingParsingEasy("fjdklaf");
 			Program.MakingParsingEasy("3");
 		}
@@ -93,6 +102,9 @@ namespace WhatsNewInCSharp7
 
 		private static void ShowRefReturnsAndLocals()
 		{
+			Console.Out.WriteLine($"{nameof(Program.ShowRefReturnsAndLocals)}");
+			Console.Out.WriteLine();
+
 			var slowClassList = new SlowList<GiantClass>(100);
 			slowClassList[50] = new GiantClass();
 			var slowClass1 = slowClassList[50];
@@ -123,6 +135,9 @@ namespace WhatsNewInCSharp7
 
 		private static void ShowPatternMatching()
 		{
+			Console.Out.WriteLine($"{nameof(Program.ShowPatternMatching)}");
+			Console.Out.WriteLine();
+
 			void CheckThings(Thing thing)
 			{
 				switch (thing)
@@ -154,6 +169,9 @@ namespace WhatsNewInCSharp7
 
 		private static void ShowTuples()
 		{
+			Console.Out.WriteLine($"{nameof(Program.ShowTuples)}");
+			Console.Out.WriteLine();
+
 			var tupleResult = Calculator.Calculate(
 				Program.FirstValue, Program.ThirdValue);
 			Console.Out.WriteLine($"{nameof(Calculator.Calculate)} value: {tupleResult.Item1}");
@@ -175,6 +193,9 @@ namespace WhatsNewInCSharp7
 
 		private static void ShowTuplesWithGenerics()
 		{
+			Console.Out.WriteLine($"{nameof(Program.ShowTuplesWithGenerics)}");
+			Console.Out.WriteLine();
+
 			var handler = new Handler();
 			handler.Handle();
 			handler.Handle(("a", 1, Guid.NewGuid()));
@@ -183,12 +204,18 @@ namespace WhatsNewInCSharp7
 
 		private static void ShowTuplesWithPropertyAssignmentInConstructor()
 		{
+			Console.Out.WriteLine($"{nameof(Program.ShowTuplesWithPropertyAssignmentInConstructor)}");
+			Console.Out.WriteLine();
+
 			var properties = new LotsOfProperties(Guid.NewGuid(), "Jason", 22);
 			Console.Out.WriteLine($"{nameof(properties.Id)} = {properties.Id}, {nameof(properties.Name)} = {properties.Name}, {nameof(properties.Age)} = {properties.Age}");
 		}
 
 		private static void ShowValueTask()
 		{
+			Console.Out.WriteLine($"{nameof(Program.ShowValueTask)}");
+			Console.Out.WriteLine();
+
 			ValueTask<int> ReturnValueAsync() => new ValueTask<int>(22);
 
 			Console.Out.WriteLine(ReturnValueAsync().GetAwaiter().GetResult());
@@ -196,6 +223,9 @@ namespace WhatsNewInCSharp7
 
 		private static void ShowExpressionBodiedMembersAndThrowExpressions()
 		{
+			Console.Out.WriteLine($"{nameof(Program.ShowExpressionBodiedMembersAndThrowExpressions)}");
+			Console.Out.WriteLine();
+
 			void PersonPropertyChanged(object sender, PropertyChangedEventArgs e)
 			{
 				Console.Out.WriteLine($"{e.PropertyName} changed.");
