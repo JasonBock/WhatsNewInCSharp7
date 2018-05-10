@@ -19,10 +19,11 @@ namespace WhatsNewInCSharp7
 		//Program.ShowPatternMatching();
 		//Program.ShowTuples();
 		//Program.ShowTuplesWithGenerics();
+		//Program.ShowTuplesWithPropertyAssignmentInConstructor();
 		//Program.ShowValueTask();
 		//Program.ShowExpressionBodiedMembersAndThrowExpressions();
 		public static void Main(string[] args) => 
-			Program.ShowExpressionBodiedMembersAndThrowExpressions();
+			Program.ShowTuplesWithPropertyAssignmentInConstructor();
 
 		private static void ShowBinaryDigitsAndDigitSeparators()
 		{
@@ -178,6 +179,12 @@ namespace WhatsNewInCSharp7
 			handler.Handle();
 			handler.Handle(("a", 1, Guid.NewGuid()));
 			handler.Handle(("a", "b"));
+		}
+
+		private static void ShowTuplesWithPropertyAssignmentInConstructor()
+		{
+			var properties = new LotsOfProperties(Guid.NewGuid(), "Jason", 22);
+			Console.Out.WriteLine($"{nameof(properties.Id)} = {properties.Id}, {nameof(properties.Name)} = {properties.Name}, {nameof(properties.Age)} = {properties.Age}");
 		}
 
 		private static void ShowValueTask()
