@@ -10,11 +10,12 @@ namespace WhatsNewInCSharp72
 		//Program.PassMutuableStruct(new MutuableStruct { Data = 10 });
 		//Program.UseMutuableStruct();
 		//Program.UseReadonlyStruct();
+		//Program.WorkWithSpans();
 		//Program.MixNamedAndOptionalArguments(guidValue: Guid.NewGuid(), stringValue: "My value", intValue: 22);
 		//Program.UseLeadingUnderscores();
 		//Program.UsePrivateProtected();
 		static void Main(string[] args) =>
-			Program.UsePrivateProtected();
+			Program.WorkWithSpans();
 
 		private static void PassMutuableStruct(in MutuableStruct data)
 		{
@@ -49,6 +50,33 @@ namespace WhatsNewInCSharp72
 
 			var data = new ReadonlyStruct(33);
 			Console.Out.WriteLine(data.Data);
+		}
+
+		private static void WorkWithSpans()
+		{
+			Console.Out.WriteLine(nameof(Program.WorkWithSpans));
+			Console.Out.WriteLine();
+
+			Span<byte> stackBytes = stackalloc byte[2];
+			stackBytes[0] = 42;
+			stackBytes[1] = 43;
+			Console.Out.WriteLine($"{stackBytes[0]}, {stackBytes[1]}");
+
+			var input = "22,33";
+			var commaPosition = input.IndexOf(',');
+
+			// Allocations
+			var first = int.Parse(input.Substring(0, commaPosition));
+			var second = int.Parse(input.Substring(commaPosition + 1));
+			Console.Out.WriteLine(
+				$"{nameof(first)}, {first} - {nameof(second)}, {second}");
+
+			// No allocations
+			var inputSpan = input.AsSpan();
+			var firstSpan = int.Parse(inputSpan.Slice(0, commaPosition));
+			var secondSpan = int.Parse(inputSpan.Slice(commaPosition + 1));
+			Console.Out.WriteLine(
+				$"{nameof(firstSpan)}, {firstSpan} - {nameof(secondSpan)}, {secondSpan}");
 		}
 
 		private static void MixNamedAndOptionalArguments(int intValue, Guid guidValue, string stringValue = default)
