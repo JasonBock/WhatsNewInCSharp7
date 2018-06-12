@@ -22,8 +22,8 @@ namespace WhatsNewInCSharp7
 		//Program.ShowTuplesWithPropertyAssignmentInConstructor();
 		//Program.ShowValueTask();
 		//Program.ShowExpressionBodiedMembersAndThrowExpressions();
-		public static void Main(string[] args) => 
-			Program.ShowTuplesWithPropertyAssignmentInConstructor();
+		public static void Main() => 
+			Program.ShowValueTask();
 
 		private static void ShowBinaryDigitsAndDigitSeparators()
 		{

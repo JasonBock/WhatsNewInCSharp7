@@ -10,9 +10,11 @@ namespace WhatsNewInCSharp73
 		//Program.UseEnumConstraints(BindingFlags.CreateInstance);
 		//Program.CompareTuples();
 		//Program.SerializeWithBackingFieldNonSerialized();
-		static void Main(string[] args) =>
-			Program.UseEnumConstraints(BindingFlags.CreateInstance);
+		static void Main() =>
+			Program.SerializeWithBackingFieldNonSerialized();
 
+		// Note: "Delegate" and "unmanaged" are the other new
+		// generic constraint types in 7.3
 		private static void UseEnumConstraints<T>(T value)
 			where T : Enum
 		{

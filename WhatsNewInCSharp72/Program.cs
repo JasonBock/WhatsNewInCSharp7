@@ -14,8 +14,8 @@ namespace WhatsNewInCSharp72
 		//Program.MixNamedAndOptionalArguments(guidValue: Guid.NewGuid(), stringValue: "My value", intValue: 22);
 		//Program.UseLeadingUnderscores();
 		//Program.UsePrivateProtected();
-		static void Main(string[] args) =>
-			Program.WorkWithSpans();
+		static void Main() =>
+			Program.UsePrivateProtected();
 
 		private static void PassMutuableStruct(in MutuableStruct data)
 		{

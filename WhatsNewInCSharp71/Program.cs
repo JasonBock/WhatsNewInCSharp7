@@ -6,20 +6,21 @@ namespace WhatsNewInCSharp71
 {
 	public static class Program
 	{
-		//await Program.DoValueTaskAsync();
+		//public static async Task Main() =>
+		//	await Program.DoValueTaskAsync();
+
 		//Program.ShowDefaultLiterals();
 		//Program.ShowInferredTupleNames();
 		//Program.ShowPatternMatchingWithGenerics();
-		public static async Task Main(string[] args) =>
-			await Program.DoValueTaskAsync();
+		public static void Main() =>
+			Program.ShowInferredTupleNames();
 
 		private static async Task DoValueTaskAsync()
 		{
 			Console.Out.WriteLine($"{nameof(Program.DoValueTaskAsync)}");
 			Console.Out.WriteLine();
 
-			ValueTask<int> ReturnValueAsync() =>
-				new ValueTask<int>(22);
+			ValueTask<int> ReturnValueAsync() => new ValueTask<int>(22);
 
 			Console.Out.WriteLine(await ReturnValueAsync());
 			Console.Out.WriteLine(SynchronizationContext.Current == null);
