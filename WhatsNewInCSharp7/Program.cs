@@ -133,41 +133,44 @@ namespace WhatsNewInCSharp7
 				$"{nameof(fastStruct2)}.{nameof(fastStruct2.Value1)} is {fastStruct2.Value1}");
 		}
 
-		private static void ShowPatternMatching()
-		{
-			Console.Out.WriteLine($"{nameof(Program.ShowPatternMatching)}");
-			Console.Out.WriteLine();
+	  private static void ShowPatternMatching()
+	  {
+		 Console.Out.WriteLine($"{nameof(Program.ShowPatternMatching)}");
+		 Console.Out.WriteLine();
 
-			void CheckThings(Thing thing)
+		 void PrepareFileForDownload(File file)
+		 {
+			switch (file)
 			{
-				switch (thing)
-				{
-					case SomeThing someThing22 when someThing22.Value == 22:
-						Console.Out.WriteLine($"{nameof(SomeThing)} with {nameof(Thing.Value)} == 22");
-						break;
-					case SomeThing someThingLessThan10 when someThingLessThan10.Value < 10:
-						Console.Out.WriteLine($"{nameof(SomeThing)} with {nameof(Thing.Value)} < 10");
-						break;
-					case AnotherThing anotherThing:
-						Console.Out.WriteLine($"{nameof(AnotherThing)}");
-						break;
-					default:
-						Console.Out.WriteLine("Unknown case");
-						break;
-					case null:
-						throw new ArgumentNullException(nameof(thing));
-				}
+			   case WordDoc bigWordFile when bigWordFile.Size > 100:
+				  // Big Word document.   Compress it before sending it on.
+				  Console.Out.WriteLine($"{nameof(WordDoc)} with {nameof(File.Size)} > 100.   That's a big one.  Better compress it.");
+				  break;
+			   case WordDoc smallWordFile when smallWordFile.Size < 100:
+				  // Smaller Word Doc.  No compression needed
+				  Console.Out.WriteLine($"{nameof(WordDoc)} with {nameof(File.Size)} < 100.  Small enough.  Skipping compression.");
+				  break;
+			   case ZipFile zipFile:
+				  // Already a compressed file.  Send it on
+				  Console.Out.WriteLine($"{nameof(ZipFile)}  Don't need to compress this");
+				  break;
+			   default:
+				  Console.Out.WriteLine("Unknown case");
+				  break;
+			   case null:
+				  throw new ArgumentNullException(nameof(file));
 			}
+		 }
 
-			CheckThings(new SomeThing { Value = 22 });
-			CheckThings(new SomeThing { Value = 2 });
-			CheckThings(new AnotherThing { Value = 2 });
-			CheckThings(new SneakyThing());
-			CheckThings(new SomeThing { Value = 222 });
-			CheckThings(null);
-		}
+		 PrepareFileForDownload(new WordDoc { Size = 200 });
+		 PrepareFileForDownload(new WordDoc { Size = 2 });
+		 PrepareFileForDownload(new ZipFile { Size = 2 });
+		 PrepareFileForDownload(new RandomFile());
+		 PrepareFileForDownload(new WordDoc { Size = 100 });
+		 PrepareFileForDownload(null);
+	  }
 
-		private static void ShowTuples()
+	  private static void ShowTuples()
 		{
 			Console.Out.WriteLine($"{nameof(Program.ShowTuples)}");
 			Console.Out.WriteLine();
