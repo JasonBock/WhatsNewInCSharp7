@@ -23,7 +23,7 @@ namespace WhatsNewInCSharp7
 		//Program.ShowValueTask();
 		//Program.ShowExpressionBodiedMembersAndThrowExpressions();
 		public static void Main() => 
-			Program.ShowValueTask();
+			Program.ShowExpressionBodiedMembersAndThrowExpressions();
 
 		private static void ShowBinaryDigitsAndDigitSeparators()
 		{

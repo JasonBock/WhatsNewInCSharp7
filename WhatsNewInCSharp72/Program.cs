@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BenchmarkDotNet.Running;
+using System;
 using WhatsNewInCSharp72.BaseClasses;
 
 namespace WhatsNewInCSharp72
@@ -11,11 +12,13 @@ namespace WhatsNewInCSharp72
 		//Program.UseMutuableStruct();
 		//Program.UseReadonlyStruct();
 		//Program.WorkWithSpans();
+		//Program.RunBufferGeneratorPerformanceBenchmark();
+		//Program.RunSerializationWithArrays();
 		//Program.MixNamedAndOptionalArguments(guidValue: Guid.NewGuid(), stringValue: "My value", intValue: 22);
 		//Program.UseLeadingUnderscores();
 		//Program.UsePrivateProtected();
 		static void Main() =>
-			Program.UsePrivateProtected();
+			Program.RunSerializationWithArrays();
 
 		private static void PassMutuableStruct(in MutuableStruct data)
 		{
@@ -78,6 +81,10 @@ namespace WhatsNewInCSharp72
 			Console.Out.WriteLine(
 				$"{nameof(firstSpan)}, {firstSpan} - {nameof(secondSpan)}, {secondSpan}");
 		}
+
+		private static void RunBufferGeneratorPerformanceBenchmark() => BenchmarkRunner.Run<BufferGeneratorPerformance>();
+
+		private static void RunSerializationWithArrays() => BenchmarkRunner.Run<SerializationWithArrays>();
 
 		private static void MixNamedAndOptionalArguments(int intValue, Guid guidValue, string stringValue = default)
 		{

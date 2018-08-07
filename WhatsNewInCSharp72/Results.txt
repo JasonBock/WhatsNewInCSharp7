@@ -1,0 +1,16 @@
+﻿Program.RunBufferGeneratorPerformanceBenchmark();
+
+            Method |     Mean |     Error |    StdDev |  Gen 0 | Allocated |
+------------------ |---------:|----------:|----------:|-------:|----------:|
+ GetConverterBytes | 557.7 ns | 11.028 ns | 12.700 ns | 0.2146 |     904 B |
+    GetStreamBytes | 339.3 ns |  6.567 ns |  6.449 ns | 0.2403 |    1008 B |
+      GetSpanBytes | 287.5 ns |  1.328 ns |  1.242 ns | 0.2174 |     912 B |
+
+
+Program.RunSerializationWithArrays();
+
+            Method |      Mean |     Error |    StdDev |  Gen 0 | Allocated |
+------------------ |----------:|----------:|----------:|-------:|----------:|
+ GetConverterValue | 780.65 ns | 9.8050 ns | 9.1716 ns | 0.0563 |     240 B |
+    GetStreamValue |  83.70 ns | 1.2214 ns | 1.1425 ns | 0.0571 |     240 B |
+      GetSpanValue |  42.82 ns | 0.3735 ns | 0.3311 ns | 0.0495 |     208 B |
