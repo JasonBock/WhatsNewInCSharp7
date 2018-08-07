@@ -1,4 +1,4 @@
 ﻿namespace WhatsNewInCSharp7
 {
-	public class ZipFile : File { }
+	public class WordFile : File { }
 }
