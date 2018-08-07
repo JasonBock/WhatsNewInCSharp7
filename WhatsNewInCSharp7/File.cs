@@ -2,8 +2,9 @@
 {
 	public abstract class File
 	{
-		protected File() : base() { }
+		protected File(uint size)
+			: base() => this.Size = size;
 
-		public int Size { get; set; }
+		public uint Size { get; }
 	}
 }

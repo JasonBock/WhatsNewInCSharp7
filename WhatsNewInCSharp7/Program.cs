@@ -23,7 +23,7 @@ namespace WhatsNewInCSharp7
 		//Program.ShowValueTask();
 		//Program.ShowExpressionBodiedMembersAndThrowExpressions();
 		public static void Main() => 
-			Program.ShowLocalFunctions();
+			Program.ShowPatternMatching();
 
 		private static void ShowBinaryDigitsAndDigitSeparators()
 		{
@@ -133,44 +133,41 @@ namespace WhatsNewInCSharp7
 				$"{nameof(fastStruct2)}.{nameof(fastStruct2.Value1)} is {fastStruct2.Value1}");
 		}
 
-	  private static void ShowPatternMatching()
-	  {
-		 Console.Out.WriteLine($"{nameof(Program.ShowPatternMatching)}");
-		 Console.Out.WriteLine();
+		private static void ShowPatternMatching()
+		{
+			Console.Out.WriteLine($"{nameof(Program.ShowPatternMatching)}");
+			Console.Out.WriteLine();
 
-		 void PrepareFileForDownload(File file)
-		 {
-			switch (file)
+			void PrepareFileForDownload(File file)
 			{
-			   case WordDoc bigWordFile when bigWordFile.Size > 100:
-				  // Big Word document.   Compress it before sending it on.
-				  Console.Out.WriteLine($"{nameof(WordDoc)} with {nameof(File.Size)} > 100.   That's a big one.  Better compress it.");
-				  break;
-			   case WordDoc smallWordFile when smallWordFile.Size < 100:
-				  // Smaller Word Doc.  No compression needed
-				  Console.Out.WriteLine($"{nameof(WordDoc)} with {nameof(File.Size)} < 100.  Small enough.  Skipping compression.");
-				  break;
-			   case ZipFile zipFile:
-				  // Already a compressed file.  Send it on
-				  Console.Out.WriteLine($"{nameof(ZipFile)}  Don't need to compress this");
-				  break;
-			   default:
-				  Console.Out.WriteLine("Unknown case");
-				  break;
-			   case null:
-				  throw new ArgumentNullException(nameof(file));
+				switch (file)
+				{
+					case WordFile bigWordFile when bigWordFile.Size > 100:
+						Console.Out.WriteLine($"{nameof(WordFile)} with {nameof(File.Size)} > 100 - Better compress it.");
+						break;
+					case WordFile smallWordFile when smallWordFile.Size < 100:
+						Console.Out.WriteLine($"{nameof(WordFile)} with {nameof(File.Size)} < 100 - Skipping compression.");
+						break;
+					case ZipFile zipFile:
+						Console.Out.WriteLine($"{nameof(ZipFile)} - Don't need to compress this");
+						break;
+					default:
+						Console.Out.WriteLine("Unknown case");
+						break;
+					case null:
+						throw new ArgumentNullException(nameof(file));
+				}
 			}
-		 }
 
-		 PrepareFileForDownload(new WordDoc { Size = 200 });
-		 PrepareFileForDownload(new WordDoc { Size = 2 });
-		 PrepareFileForDownload(new ZipFile { Size = 2 });
-		 PrepareFileForDownload(new RandomFile());
-		 PrepareFileForDownload(new WordDoc { Size = 100 });
-		 PrepareFileForDownload(null);
-	  }
+			PrepareFileForDownload(new WordFile(200));
+			PrepareFileForDownload(new WordFile(2));
+			PrepareFileForDownload(new ZipFile(2));
+			PrepareFileForDownload(new RandomFile(10));
+			PrepareFileForDownload(new WordFile(100));
+			PrepareFileForDownload(null);
+		}
 
-	  private static void ShowTuples()
+		private static void ShowTuples()
 		{
 			Console.Out.WriteLine($"{nameof(Program.ShowTuples)}");
 			Console.Out.WriteLine();
@@ -246,7 +243,7 @@ namespace WhatsNewInCSharp7
 			{
 				new ExpressedPerson(22, null);
 			}
-			catch(ArgumentNullException e)
+			catch (ArgumentNullException e)
 			{
 				Console.Out.WriteLine($"{nameof(ArgumentNullException)} - {e.ParamName}");
 			}

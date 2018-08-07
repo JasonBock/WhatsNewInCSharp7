@@ -1,4 +1,9 @@
 ﻿namespace WhatsNewInCSharp7
 {
-	public class WordFile : File { }
+	public sealed class WordFile 
+		: File
+	{
+		public WordFile(uint size)
+			: base(size) { }
+	}
 }

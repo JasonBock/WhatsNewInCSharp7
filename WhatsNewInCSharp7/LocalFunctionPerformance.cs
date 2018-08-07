@@ -3,7 +3,8 @@ using System.Collections.Generic;
 
 namespace WhatsNewInCSharp7
 {
-	public class LocalCode
+	[MemoryDiagnoser]
+	public class LocalFunctionPerformance
 	{
 		[Params(5, 50, 500, 5000, 50000, 500000)]
 		public uint Value { get; set; }
@@ -50,7 +51,7 @@ namespace WhatsNewInCSharp7
 
 		[Benchmark]
 		public int RunWithPrivateFunctions() =>
-			LocalCode.PrivateCollatzSequence(this.Value).Length;
+			LocalFunctionPerformance.PrivateCollatzSequence(this.Value).Length;
 
 		private static uint[] PrivateCollatzSequence(uint start)
 		{
@@ -60,7 +61,7 @@ namespace WhatsNewInCSharp7
 
 			while (next > 1)
 			{
-				next = LocalCode.PrivateCollatz(next);
+				next = LocalFunctionPerformance.PrivateCollatz(next);
 				sequence.Add(next);
 			}
 

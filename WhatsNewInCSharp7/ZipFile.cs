@@ -1,9 +1,9 @@
 ﻿namespace WhatsNewInCSharp7
 {
-	public sealed class RandomFile
+	public sealed class ZipFile
 		: File
 	{
-		public RandomFile(uint size)
+		public ZipFile(uint size)
 			: base(size) { }
 	}
 }
