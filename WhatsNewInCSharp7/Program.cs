@@ -23,16 +23,16 @@ namespace WhatsNewInCSharp7
 		//Program.ShowValueTask();
 		//Program.ShowExpressionBodiedMembersAndThrowExpressions();
 		public static void Main() => 
-			Program.ShowExpressionBodiedMembersAndThrowExpressions();
+			Program.ShowLocalFunctions();
 
 		private static void ShowBinaryDigitsAndDigitSeparators()
 		{
 			Console.Out.WriteLine($"{nameof(Program.ShowBinaryDigitsAndDigitSeparators)}");
 			Console.Out.WriteLine();
 
-			Console.Out.WriteLine(Program.FirstValue);
-			Console.Out.WriteLine(Program.SecondValue);
-			Console.Out.WriteLine(Program.ThirdValue);
+			Console.Out.WriteLine($"{nameof(Program.FirstValue)} is {Program.FirstValue}");
+			Console.Out.WriteLine($"{nameof(Program.SecondValue)} is {Program.SecondValue}");
+			Console.Out.WriteLine($"{nameof(Program.ThirdValue)} is {Program.ThirdValue}");
 		}
 
 		private static void ShowLocalFunctions()
